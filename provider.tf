@@ -1,4 +1,10 @@
 terraform {
+    backend "gcs"{
+        bucket = "gcptfpractice"
+        prefix="terraform/state"
+    }
+
+
   required_providers {
     google = {
       source  = "hashicorp/google"
@@ -19,6 +25,6 @@ provider "google" {
 
 output "vpcid" {
   description = "vpcid will be dispalyed on the screen"
-  value = "google_compute_network.vpc_network.id"
-  
+  value       = "google_compute_network.vpc_network.id"
+
 }

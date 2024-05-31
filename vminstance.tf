@@ -6,13 +6,13 @@ resource "google_service_account" "service_account" {
 
 resource "google_compute_instance" "webserver" {
   name         = var.vminstance
-  machine_type ="n2-standard-2"
+  machine_type = "n2-standard-2"
   zone         = var.zone
-  
+
 
   tags = ["demo", "learn"]
 
- boot_disk {
+  boot_disk {
     initialize_params {
       image = "debian-cloud/debian-11"
       #image = "ubuntu-os-cloud/ubuntu-2004-focal-v20220712"
@@ -20,9 +20,9 @@ resource "google_compute_instance" "webserver" {
         my_label = "value"
       }
       size = 32
-     # auto_delete = false
+      # auto_delete = false
     }
- }
+  }
 
   // Local SSD disk
   scratch_disk {
